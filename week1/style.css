@@ -1,5 +1,5 @@
 .header {
-  height: 4rem;
+  height: 60px;
 
   display: flex;
   justify-content: center;
@@ -8,6 +8,81 @@
   background-color: purple;
   color: whitesmoke;
 
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 700;
+}
+
+/* -------------------- */
+
+.main__wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* -------------------- */
+
+.main__nav {
+  flex: 1.1;
+
+  height: 80px;
+
+  margin: 10px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  background-color: burlywood;
+}
+
+.main__nav .main__nav-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.main__nav-lists > li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.main__nav .main__nav-list {
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  background-color: aliceblue;
+}
+
+.main__nav .main__nav-list:hover {
+  color: whitesmoke;
+  background-color: skyblue;
+
+  cursor: pointer;
+}
+
+/* -------------------- */
+
+.main__list {
+  flex: 3;
+
+  margin: 1rem;
+}
+
+/* -------------------- */
+
+.main__cart {
+  flex: 1.5;
+
+  margin: 1rem;
+  
+  
 }
