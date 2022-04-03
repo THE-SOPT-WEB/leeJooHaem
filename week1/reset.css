@@ -41,3 +41,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.visually_hidden1 {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  margin: 0;
+}
