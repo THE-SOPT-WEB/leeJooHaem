@@ -1,0 +1,13 @@
+.header {
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: purple;
+  color: whitesmoke;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+}
