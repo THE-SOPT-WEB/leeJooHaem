@@ -42,7 +42,7 @@ table {
   border-spacing: 0;
 }
 
-.visually_hidden1 {
+.visually_hidden {
   height: 1px;
   width: 1px;
   position: absolute;
