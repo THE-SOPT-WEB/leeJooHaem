@@ -144,7 +144,7 @@
 }
 
 .main__cart .main__cart-line {
-  width: clac(100% - 10px);
+  width: calc(100% - 10px);
   height: 2px;
 
   margin: 30px auto;
