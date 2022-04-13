@@ -7,20 +7,30 @@ let totalPrice = 0;
 
 // -------------------------------------------------------
 
+function deleteBurgerFromCart(e) {
+  e.currentTarget.closest("li").remove();
+}
+
 function addBurgerToCart(idx, e) {
-  const targetName =
-    e.currentTarget.querySelector(".main__list-text").innerText;
+  const targetName = e.currentTarget.querySelector(
+    "strong.main__list-text"
+  ).innerText;
   const targetPrice =
-    e.currentTarget.querySelector(".main__list-price").innerText;
+    e.currentTarget.querySelector("p.main__list-price").innerText;
 
   const cartList = document.createElement("li");
   cartList.innerHTML = `
     <strong>${targetName}</strong>
     <input type="number" value="1" />
     <p>${targetPrice}</p>
-    <button type="button">❌</button>
+    <button type="button" class="main__cart-list-delete-buttonn">❌</button>
   `;
   $(".main__cart-list-wrapper").appendChild(cartList);
+
+  const cartListDelBtn = cartList.querySelector(
+    "button.main__cart-list-delete-buttonn"
+  );
+  cartListDelBtn.addEventListener("click", (e) => deleteBurgerFromCart(e));
 }
 
 function attachClickEventToBurgerBox() {
