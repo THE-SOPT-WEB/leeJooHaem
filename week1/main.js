@@ -1,8 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
-const burgerArticleBoxes = document.querySelectorAll(".main__list");
-const totalPriceElement = $(".main__cart-total-price");
-const burgerListsOnCart = $(".main__cart-list-wrapper");
 
+const burgersInCart = [];
 let totalPrice = 0;
 
 // -------------------------------------------------------
@@ -11,31 +9,46 @@ function deleteBurgerFromCart(e) {
   e.currentTarget.closest("li").remove();
 }
 
-function addBurgerToCart(idx, e) {
-  const targetName = e.currentTarget.querySelector(
-    "strong.main__list-text"
-  ).innerText;
+function addNewBurgerToCart(targetBurger, targetBurgerName) {
   const targetPrice =
-    e.currentTarget.querySelector("p.main__list-price").innerText;
+    targetBurger.querySelector("p.main__list-price").innerText;
 
   const cartList = document.createElement("li");
   cartList.innerHTML = `
-    <strong>${targetName}</strong>
-    <input type="number" value="1" />
+    <strong>${targetBurgerName}</strong>
+    <input type="number" value="1" class="main__${targetBurgerName}-amount" />
     <p>${targetPrice}</p>
-    <button type="button" class="main__cart-list-delete-buttonn">❌</button>
+    <button type="button" class="main__cart-list-delete-button">❌</button>
   `;
   $(".main__cart-list-wrapper").appendChild(cartList);
+  cartList
+    .querySelector("button.main__cart-list-delete-button")
+    .addEventListener("click", (e) => deleteBurgerFromCart(e));
+}
 
-  const cartListDelBtn = cartList.querySelector(
-    "button.main__cart-list-delete-buttonn"
-  );
-  cartListDelBtn.addEventListener("click", (e) => deleteBurgerFromCart(e));
+function addExistBurgerToCart(targetBurgerName) {
+  $(`.main__${targetBurgerName}-amount`).value++;
+}
+
+function addBurgerToCart(e) {
+  const targetBurger = e.currentTarget;
+  const targetBurgerName = targetBurger.querySelector(
+    "strong.main__list-text"
+  ).innerText;
+
+  if (!burgersInCart.includes(targetBurgerName)) {
+    burgersInCart.push(targetBurgerName);
+    addNewBurgerToCart(targetBurger, targetBurgerName);
+  } else {
+    addExistBurgerToCart(targetBurgerName);
+  }
 }
 
 function attachClickEventToBurgerBox() {
+  const burgerArticleBoxes = document.querySelectorAll(".main__list");
+
   burgerArticleBoxes.forEach((burgerArticleBox, idx) =>
-    burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(idx, e))
+    burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(e))
   );
 }
 
