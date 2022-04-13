@@ -12,6 +12,15 @@ function addBurgerToCart(idx, e) {
     e.currentTarget.querySelector(".main__list-text").innerText;
   const targetPrice =
     e.currentTarget.querySelector(".main__list-price").innerText;
+
+  const cartList = document.createElement("li");
+  cartList.innerHTML = `
+    <strong>${targetName}</strong>
+    <input type="number" value="1" />
+    <p>${targetPrice}</p>
+    <button type="button">❌</button>
+  `;
+  $(".main__cart-list-wrapper").appendChild(cartList);
 }
 
 function attachClickEventToBurgerBox() {
