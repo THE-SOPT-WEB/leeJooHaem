@@ -1,6 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 const cartListsWrapper = $(".main__cart-list-wrapper");
+const modal = $(".modal");
 
 const burgersInCart = [];
 
@@ -78,8 +79,16 @@ function addBurgerToCart(e) {
 
 // -------------------------------------------------------
 
+function attachClickEventToBurgerBox() {
+  const burgerArticleBoxes = $$(".main__list");
+
+  burgerArticleBoxes.forEach((burgerArticleBox) =>
+    burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(e))
+  );
+}
+
 function orderMyBurger() {
-  console.log("order");
+  modal.classList.remove("hide");
 }
 
 function cancelMyOrder() {
@@ -87,22 +96,23 @@ function cancelMyOrder() {
   calculateTotalPrice();
 }
 
-function attachClickEventToBurgerBox() {
-  const burgerArticleBoxes = $$(".main__list");
+function cancelModal() {
+  modal.classList.add("hide");
+}
+
+function attachClickEventToButtonsOnCartBox() {
   const orderBtn = $(".main__cart-button-order");
   const cancelBtn = $(".main__cart-button-cancel");
+  const modalCancelBtn = $(".modal__cancel-btn");
 
-  burgerArticleBoxes.forEach((burgerArticleBox) =>
-    burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(e))
-  );
   orderBtn.addEventListener("click", orderMyBurger);
   cancelBtn.addEventListener("click", cancelMyOrder);
+  modalCancelBtn.addEventListener("click", cancelModal);
 }
 
 function init() {
   attachClickEventToBurgerBox();
-  // 5. 취소하기 버튼
-  // 6. 주분하기 버튼
+  attachClickEventToButtonsOnCartBox();
 }
 
 init();
