@@ -31,12 +31,14 @@ const quizList = [
   },
 ];
 
-function showModal(modalContent) {
+function showModal(modalContent, keepContent = false) {
   const modalBody = $("p.modal__body");
   const modal = $(".modal");
 
   modalBody.innerHTML = modalContent;
   modal.classList.remove("hide");
+
+  if (keepContent) return;
   setTimeout(() => {
     modal.classList.add("hide");
   }, 800);
@@ -51,7 +53,7 @@ function goNextStep(score, image) {
 }
 
 function goInitStep() {
-  showModal(`<a href="/">메인 갈람갈</a>`);
+  showModal(`<a href="/">메인 갈람갈</a>`, true);
 }
 
 function stayCurrentStep() {
