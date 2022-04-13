@@ -75,12 +75,26 @@ function addBurgerToCart(e) {
   calculateTotalPrice();
 }
 
+// -------------------------------------------------------
+
+function orderMyBurger() {
+  console.log("order");
+}
+
+function cancelMyBurger() {
+  console.log("cancel");
+}
+
 function attachClickEventToBurgerBox() {
   const burgerArticleBoxes = $$(".main__list");
+  const orderBtn = $(".main__cart-button-order");
+  const cancelBtn = $(".main__cart-button-cancel");
 
   burgerArticleBoxes.forEach((burgerArticleBox) =>
     burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(e))
   );
+  orderBtn.addEventListener("click", orderMyBurger);
+  cancelBtn.addEventListener("click", cancelMyBurger);
 }
 
 function init() {
