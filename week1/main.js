@@ -25,7 +25,7 @@ function calculateTotalPrice() {
     totalPrice += currentPrice * currentAmount;
   });
 
-  $(".main__cart-total-price").innerText = `${totalPrice}원`;
+  $(".main__cart-total-price").innerText = `${totalPrice.toLocaleString()}원`;
 }
 
 function deleteBurgerFromCart(e) {
