@@ -1,5 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
+const cartListsWrapper = $(".main__cart-list-wrapper");
 
 const burgersInCart = [];
 
@@ -46,7 +47,7 @@ function addNewBurgerToCart(targetBurger, targetBurgerName) {
     <p class="main__cart-list-price">${targetPrice}</p>
     <button type="button" class="main__cart-list-delete-button">❌</button>
   `;
-  $(".main__cart-list-wrapper").appendChild(cartList);
+  cartListsWrapper.appendChild(cartList);
   cartList
     .querySelector(`.main__${targetBurgerName}-amount`)
     .addEventListener("change", calculateTotalPrice);
@@ -81,8 +82,9 @@ function orderMyBurger() {
   console.log("order");
 }
 
-function cancelMyBurger() {
-  console.log("cancel");
+function cancelMyOrder() {
+  cartListsWrapper.innerHTML = "";
+  calculateTotalPrice();
 }
 
 function attachClickEventToBurgerBox() {
@@ -94,7 +96,7 @@ function attachClickEventToBurgerBox() {
     burgerArticleBox.addEventListener("click", (e) => addBurgerToCart(e))
   );
   orderBtn.addEventListener("click", orderMyBurger);
-  cancelBtn.addEventListener("click", cancelMyBurger);
+  cancelBtn.addEventListener("click", cancelMyOrder);
 }
 
 function init() {
