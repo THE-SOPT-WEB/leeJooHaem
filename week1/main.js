@@ -3,7 +3,7 @@ const $$ = (selector) => document.querySelectorAll(selector);
 const cartListsWrapper = $(".main__cart-list-wrapper");
 const modal = $(".modal");
 
-const burgersInCart = [];
+let burgersInCart = [];
 
 const parsePriceToNumber = (price) => {
   const removedComma = price.slice(0, -1).replace(/\D/g, "");
@@ -93,7 +93,7 @@ function orderMyBurger() {
 
 function cancelMyOrder() {
   cartListsWrapper.innerHTML = "";
-  burgersInCart = [];
+  burgersInCart.length = 0;
 
   calculateTotalPrice();
 }
