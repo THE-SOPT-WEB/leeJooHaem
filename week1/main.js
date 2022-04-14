@@ -93,6 +93,8 @@ function orderMyBurger() {
 
 function cancelMyOrder() {
   cartListsWrapper.innerHTML = "";
+  burgersInCart = [];
+
   calculateTotalPrice();
 }
 
