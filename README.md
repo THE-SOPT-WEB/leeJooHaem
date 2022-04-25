@@ -4,5 +4,7 @@
 
 | 주차  | 과제 내용 |  🔗 링크  | 
 |---|---|---|
-| 1주차  | 햄식이를 도와줄람줄  | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/1)  | 
+| 1주차  | 햄식이를 도와줄람줄 | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/1)  | 
+| 2주차  | 누군지 맞람맞 | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/2)  | 
+| 2주차  | 햄식이를 도와줄람줄 JS | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/3)  | 
 |   |   |   |
