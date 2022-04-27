@@ -1,4 +1,4 @@
-import { Container, Image, ImageWrapper, Title, VS } from "style/tournament";
+import { Container, Image, ImageWrapper, Title } from "style/tournament";
 
 interface TournamentProps {
   children: React.ReactNode;
@@ -23,8 +23,4 @@ Tournament.Image = function TournamentImage({ ...restProps }: TournamentImagePro
 
 Tournament.Title = function TournamentTitle({ children, ...restProps }: TournamentProps) {
   return <Title {...restProps}>{children}</Title>;
-};
-
-Tournament.VS = function TournamentVS({ children, ...restProps }: TournamentProps) {
-  return <VS {...restProps}>{children}</VS>;
 };

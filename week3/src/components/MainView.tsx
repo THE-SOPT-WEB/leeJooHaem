@@ -11,13 +11,12 @@ export default function MainView() {
       </StMainHeader>
       <Tournament>
         <Tournament.ImageWrapper>
-          <Tournament.Image src="" alt="" />
-          <Tournament.Title>{"네덜란드"}</Tournament.Title>
-        </Tournament.ImageWrapper>
-        {/* <Tournament.VS>VS</Tournament.VS>  */}
-        <Tournament.ImageWrapper>
-          <Tournament.Image src="" alt="" />
+          <Tournament.Image src="/assets/korea.png" alt="" />
           <Tournament.Title>{"대한민국"}</Tournament.Title>
+        </Tournament.ImageWrapper>
+        <Tournament.ImageWrapper>
+          <Tournament.Image src="/assets/netherlands.png" alt="" />
+          <Tournament.Title>{"네덜란드"}</Tournament.Title>
         </Tournament.ImageWrapper>
       </Tournament>
     </StMainWrapper>
@@ -43,7 +42,7 @@ const StTitle = styled.h1`
   ${({ theme }) => theme.center};
 
   color: white;
-  font-size: 5rem;
+  font-size: 3rem;
 `;
 
 const StRound = styled(StTitle)``;
