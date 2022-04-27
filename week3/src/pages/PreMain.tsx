@@ -59,6 +59,7 @@ const StAniBall = styled.div`
 
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
   animation-name: ${aniBall};
 `;
 
