@@ -1,7 +1,8 @@
 import App from "App";
 import React from "react";
 import ReactDOM from "react-dom";
-import { createGlobalStyle } from "styled-components";
+import theme from "style";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -51,8 +52,10 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );

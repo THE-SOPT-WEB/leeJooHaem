@@ -10,7 +10,9 @@ export default function PreMain() {
 
 const MainWrapper = styled.main`
   height: 100vh;
-  background-color: rgb(37, 38, 37);
+  background-color: ${({ theme }) => theme.colors.black};
 `;
 
-const MainHeader = styled.header``;
+const MainHeader = styled.header`
+  background-color: ${({ theme }) => theme.colors.orange};
+`;
