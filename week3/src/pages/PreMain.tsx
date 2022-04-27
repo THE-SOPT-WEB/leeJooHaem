@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 export default function PreMain() {
   return (
     <MainWrapper>
-      <MainHeader>킹안받는 월드컵</MainHeader>
+      <MainHeader>킹안받는 진짜 월드컵</MainHeader>
       <StAniBall></StAniBall>
       <StLink to="/king">시작할람하고</StLink>
     </MainWrapper>
