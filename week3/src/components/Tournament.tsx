@@ -6,7 +6,7 @@ interface TournamentProps {
 
 interface TournamentImageWrapperProps {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 interface TournamentImageProps {
