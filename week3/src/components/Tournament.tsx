@@ -4,6 +4,11 @@ interface TournamentProps {
   children: React.ReactNode;
 }
 
+interface TournamentImageWrapperProps {
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
 interface TournamentImageProps {
   src: string;
   alt: string;
@@ -13,7 +18,7 @@ export function Tournament({ children, ...restProps }: TournamentProps) {
   return <Container {...restProps}>{children}</Container>;
 }
 
-Tournament.ImageWrapper = function TournamentImageWrapper({ children, ...restProps }: TournamentProps) {
+Tournament.ImageWrapper = function TournamentImageWrapper({ children, ...restProps }: TournamentImageWrapperProps) {
   return <ImageWrapper {...restProps}>{children}</ImageWrapper>;
 };
 

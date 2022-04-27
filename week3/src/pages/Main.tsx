@@ -27,9 +27,24 @@ export default function Main() {
     },
   ]);
 
+  const chooseWinnerNGoNextRound = (removingIdx: number) => {
+    console.log("sdf");
+    const prevWinnersLength = winners.length;
+
+    setWinners((prevWinners) => {
+      const winnersCopy = [...prevWinners];
+      winnersCopy.splice(removingIdx, 1);
+      return winnersCopy;
+    });
+
+    if (prevWinnersLength <= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
+    else setIdxOfNations(0);
+  };
+
   const mainViewProps = {
     idxOfNations,
     winners,
+    chooseWinnerNGoNextRound,
   };
 
   return <MainView {...mainViewProps} />;

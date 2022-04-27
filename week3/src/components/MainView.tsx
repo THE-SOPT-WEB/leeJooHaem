@@ -6,10 +6,11 @@ import { Tournament } from "./Tournament";
 interface MainViewProps {
   idxOfNations: number;
   winners: Nation[];
+  chooseWinnerNGoNextRound: (removingIdx: number) => void;
 }
 
 export default function MainView(props: MainViewProps) {
-  const { idxOfNations, winners } = props;
+  const { idxOfNations, winners, chooseWinnerNGoNextRound } = props;
 
   return (
     <StMainWrapper>
@@ -18,11 +19,11 @@ export default function MainView(props: MainViewProps) {
         <StRound>1/1</StRound>
       </StMainHeader>
       <Tournament>
-        <Tournament.ImageWrapper>
+        <Tournament.ImageWrapper onClick={() => chooseWinnerNGoNextRound(idxOfNations + 1)}>
           <Tournament.Image src={winners[idxOfNations].image} alt={winners[idxOfNations].alt} />
           <Tournament.Title>{winners[idxOfNations].alt}</Tournament.Title>
         </Tournament.ImageWrapper>
-        <Tournament.ImageWrapper>
+        <Tournament.ImageWrapper onClick={() => chooseWinnerNGoNextRound(idxOfNations)}>
           <Tournament.Image src={winners[idxOfNations + 1].image} alt={winners[idxOfNations + 1].alt} />
           <Tournament.Title>{winners[idxOfNations + 1].alt}</Tournament.Title>
         </Tournament.ImageWrapper>

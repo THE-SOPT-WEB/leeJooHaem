@@ -7,14 +7,14 @@ export const Container = styled.section`
 
   display: flex;
 
-  &:after {
+  &:before {
     content: "VS";
 
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    left: 40%;
 
     ${({ theme }) => theme.center};
 
@@ -36,9 +36,9 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
 
-  /* &:hover {
+  &:hover {
     opacity: 0.5;
-  } */
+  }
 `;
 
 export const Title = styled.h2`
