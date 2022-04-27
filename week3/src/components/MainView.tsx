@@ -12,11 +12,15 @@ interface MainViewProps {
 export default function MainView(props: MainViewProps) {
   const { idxOfNations, winners, chooseWinnerNGoNextRound } = props;
 
+  const round = winners.length <= 2 ? 2 : 4;
+
   return (
     <StMainWrapper>
       <StMainHeader>
         <StTitle>킹안받는 월드컵</StTitle>
-        <StRound>1/1</StRound>
+        <StRound>
+          {round}강 - {idxOfNations + 1}
+        </StRound>
       </StMainHeader>
       <Tournament>
         <Tournament.ImageWrapper onClick={() => chooseWinnerNGoNextRound(idxOfNations + 1)}>
