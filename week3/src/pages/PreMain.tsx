@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export default function PreMain() {
   return (
     <MainWrapper>
       <MainHeader>킹안받는 월드컵</MainHeader>
-      <div></div>
+      <StAniBall></StAniBall>
       <StLink to="/king">시작할람하고</StLink>
     </MainWrapper>
   );
@@ -37,9 +37,35 @@ const MainHeader = styled.header`
   ${({ theme }) => theme.shadow};
 `;
 
+const aniBall = keyframes`
+    0% {
+      transform: translateY(-5rem);
+    }
+    50% {
+      transform: translateY(5rem);
+    }
+    100% {
+      transform: translateY(-5rem);
+    }
+  `;
+
+const StAniBall = styled.div`
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+
+  background-color: white;
+
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: ${aniBall};
+`;
+
 const StLink = styled(Link)`
   all: unset;
 
+  width: 9rem;
   height: 3rem;
 
   ${({ theme }) => theme.center};
