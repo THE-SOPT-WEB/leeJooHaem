@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function MainView() {
+export default function PreMain() {
   return (
     <MainWrapper>
       <MainHeader>asd</MainHeader>
