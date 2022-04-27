@@ -1,3 +1,5 @@
+import MainView from "components/MainView";
+
 export default function Main() {
-  return <div>Main</div>;
+  return <MainView />;
 }
