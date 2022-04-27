@@ -12,7 +12,7 @@ interface MainViewProps {
 export default function MainView(props: MainViewProps) {
   const { idxOfNations, winners, chooseWinnerNGoNextRound } = props;
 
-  const round = winners.length <= 2 ? 2 : 4;
+  const round = winners.length <= 4 ? (winners.length <= 2 ? 2 : 4) : 8;
 
   return (
     <StMainWrapper>
