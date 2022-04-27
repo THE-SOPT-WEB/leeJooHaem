@@ -1,5 +1,6 @@
 import MainView from "components/MainView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export interface Nation {
   image: string;
@@ -7,6 +8,7 @@ export interface Nation {
 }
 
 export default function Main() {
+  const navigation = useNavigate();
   const [idxOfNations, setIdxOfNations] = useState<number>(0);
   const [winners, setWinners] = useState<Nation[]>([
     {
@@ -27,6 +29,7 @@ export default function Main() {
     },
   ]);
 
+  // 클릭할 경우 Winners 에서 패배자 삭제 및 idx 변경
   const chooseWinnerNGoNextRound = (removingIdx: number) => {
     const prevWinnersLength = winners.length;
 
@@ -36,7 +39,8 @@ export default function Main() {
       return winnersCopy;
     });
 
-    if (prevWinnersLength >= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
+    if (prevWinnersLength === 2) navigation("/complete", { state: winners[0] });
+    else if (prevWinnersLength >= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
     else setIdxOfNations(0);
   };
 
