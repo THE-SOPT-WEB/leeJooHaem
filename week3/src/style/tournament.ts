@@ -6,6 +6,7 @@ export const Container = styled.section`
   height: 70vh;
 
   display: flex;
+  justify-content: space-evenly;
 
   &:before {
     content: "VS";
@@ -29,11 +30,12 @@ export const Container = styled.section`
 
 export const ImageWrapper = styled.div`
   position: relative;
+
+  aspect-ratio: 1 / 1;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
   object-fit: cover;
 
   &:hover {
