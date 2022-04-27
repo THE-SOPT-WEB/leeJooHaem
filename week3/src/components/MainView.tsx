@@ -7,7 +7,7 @@ export default function MainView() {
         <StTitle>킹안받는 월드컵</StTitle>
         <StRound>1/1</StRound>
       </StMainHeader>
-      <StMainContent>sad</StMainContent>
+      <StMainContent>{/* Compound Components */}</StMainContent>
     </StMainWrapper>
   );
 }
