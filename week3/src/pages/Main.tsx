@@ -28,7 +28,6 @@ export default function Main() {
   ]);
 
   const chooseWinnerNGoNextRound = (removingIdx: number) => {
-    console.log("sdf");
     const prevWinnersLength = winners.length;
 
     setWinners((prevWinners) => {
@@ -37,7 +36,7 @@ export default function Main() {
       return winnersCopy;
     });
 
-    if (prevWinnersLength <= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
+    if (prevWinnersLength >= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
     else setIdxOfNations(0);
   };
 

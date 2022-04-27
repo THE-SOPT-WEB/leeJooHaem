@@ -11,10 +11,10 @@ export const Container = styled.section`
     content: "VS";
 
     position: absolute;
-    top: 40%;
-    right: 40%;
-    bottom: 40%;
-    left: 40%;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
 
     ${({ theme }) => theme.center};
 
