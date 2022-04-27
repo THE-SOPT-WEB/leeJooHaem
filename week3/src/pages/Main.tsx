@@ -1,7 +1,14 @@
 import MainView from "components/MainView";
+import { useState } from "react";
+
+export interface Nation {
+  image: string;
+  alt: string;
+}
 
 export default function Main() {
-  const nations = [
+  const [idxOfNations, setIdxOfNations] = useState<number>(0);
+  const [winners, setWinners] = useState<Nation[]>([
     {
       image: "/assets/korea.png",
       alt: "대한민국",
@@ -18,11 +25,12 @@ export default function Main() {
       image: "/assets/netherlands.png",
       alt: "네덜란드",
     },
-  ];
+  ]);
 
   const mainViewProps = {
-    nations,
+    idxOfNations,
+    winners,
   };
 
-  return <MainView />;
+  return <MainView {...mainViewProps} />;
 }

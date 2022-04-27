@@ -1,8 +1,16 @@
+import { Nation } from "pages/Main";
 import styled from "styled-components";
 
 import { Tournament } from "./Tournament";
 
-export default function MainView() {
+interface MainViewProps {
+  idxOfNations: number;
+  winners: Nation[];
+}
+
+export default function MainView(props: MainViewProps) {
+  const { idxOfNations, winners } = props;
+
   return (
     <StMainWrapper>
       <StMainHeader>
@@ -11,12 +19,12 @@ export default function MainView() {
       </StMainHeader>
       <Tournament>
         <Tournament.ImageWrapper>
-          <Tournament.Image src="/assets/korea.png" alt="" />
-          <Tournament.Title>{"대한민국"}</Tournament.Title>
+          <Tournament.Image src={winners[idxOfNations].image} alt={winners[idxOfNations].alt} />
+          <Tournament.Title>{winners[idxOfNations].alt}</Tournament.Title>
         </Tournament.ImageWrapper>
         <Tournament.ImageWrapper>
-          <Tournament.Image src="/assets/netherlands.png" alt="" />
-          <Tournament.Title>{"네덜란드"}</Tournament.Title>
+          <Tournament.Image src={winners[idxOfNations + 1].image} alt={winners[idxOfNations + 1].alt} />
+          <Tournament.Title>{winners[idxOfNations + 1].alt}</Tournament.Title>
         </Tournament.ImageWrapper>
       </Tournament>
     </StMainWrapper>
