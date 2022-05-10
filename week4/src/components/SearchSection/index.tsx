@@ -1,6 +1,6 @@
 import { KAKAO } from "core/api";
 import { ResultList, ResultListWithAxios } from "core/types";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import getLocation from "util/getLocation";
 
@@ -8,10 +8,11 @@ import InputInformation from "./InputInformation";
 
 interface SearchSectionProps {
   handleResultList: (newResultList: ResultList[]) => void;
+  handleIsLoading: (_isLoading: boolean) => void;
 }
 
 export default function SearchSection(props: SearchSectionProps) {
-  const { handleResultList } = props;
+  const { handleResultList, handleIsLoading } = props;
 
   const [isRegionBasedChecked, setIsRegionBasedChecked] = useState<boolean>(false);
   const locationInputRef = useRef<HTMLInputElement>(null);
@@ -21,6 +22,8 @@ export default function SearchSection(props: SearchSectionProps) {
   };
 
   const 특정지역맥주집가져오기 = async (location = "") => {
+    handleIsLoading(true);
+
     const {
       data: { documents },
     } = await KAKAO.get<ResultListWithAxios>("/search/keyword", {
@@ -30,9 +33,12 @@ export default function SearchSection(props: SearchSectionProps) {
     });
 
     handleResultList(documents);
+    handleIsLoading(false);
   };
 
   const 내근처맥주집가져오기 = async () => {
+    handleIsLoading(true);
+
     const myLocation = await getLocation();
 
     if (myLocation) {
@@ -49,6 +55,8 @@ export default function SearchSection(props: SearchSectionProps) {
 
       handleResultList(documents);
     }
+
+    handleIsLoading(false);
   };
 
   const 검색하기 = () => {

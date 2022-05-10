@@ -2,27 +2,27 @@ import HeaderSection from "components/HeaderSection";
 import ListSection from "components/ListSection";
 import SearchSection from "components/SearchSection";
 import { ResultList } from "core/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function Main() {
-  // 로딩중중ㅈ웆ㅇ
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [resultList, setResultList] = useState<ResultList[]>([]);
+
+  const handleIsLoading = (_isLoading: boolean) => {
+    setIsLoading(_isLoading);
+  };
 
   const handleResultList = (newResultList: ResultList[]) => {
     setResultList(newResultList);
   };
 
-  useEffect(() => {
-    console.log(resultList);
-  }, [resultList]);
-
   return (
     <StMainContainer>
       <StMainWrapper>
         <HeaderSection />
-        <SearchSection handleResultList={handleResultList} />
-        <ListSection />
+        <SearchSection handleResultList={handleResultList} handleIsLoading={handleIsLoading} />
+        <ListSection resultList={resultList} isLoading={isLoading} />
       </StMainWrapper>
     </StMainContainer>
   );
