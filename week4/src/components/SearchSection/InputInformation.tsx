@@ -1,7 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function InputInformation() {
+interface InputInformationProps {
+  locationInputRef: React.MutableRefObject<HTMLInputElement | null>;
+}
+
+export default function InputInformation(props: InputInformationProps) {
+  const { locationInputRef } = props;
+
   const [isRegionBasedChecked, setIsRegionBasedChecked] = useState<boolean>(false);
 
   return (
@@ -17,7 +23,7 @@ export default function InputInformation() {
       </p>
 
       <label htmlFor="my-region">우리 동네는 여기에요</label>
-      <StRegionInput type="text" id="my-region" disabled={isRegionBasedChecked}></StRegionInput>
+      <StRegionInput type="text" id="my-region" ref={locationInputRef} disabled={isRegionBasedChecked}></StRegionInput>
     </>
   );
 }

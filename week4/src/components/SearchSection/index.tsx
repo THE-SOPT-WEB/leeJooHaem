@@ -1,5 +1,6 @@
 import { KAKAO } from "core/api";
 import { ResultList, ResultListWithAxios } from "core/types";
+import { useRef } from "react";
 import styled from "styled-components";
 
 import InputInformation from "./InputInformation";
@@ -10,8 +11,9 @@ interface SearchSectionProps {
 
 export default function SearchSection(props: SearchSectionProps) {
   const { handleResultList } = props;
+  const locationInputRef = useRef<HTMLInputElement>(null);
 
-  const 특정지역맥주집가져오기 = async (location: string) => {
+  const 특정지역맥주집가져오기 = async (location = "") => {
     const {
       data: { documents },
     } = await KAKAO.get<ResultListWithAxios>("/search/keyword", {
@@ -25,8 +27,10 @@ export default function SearchSection(props: SearchSectionProps) {
 
   return (
     <SearchSectionWrapper>
-      <InputInformation />
-      <StButton type="button">검색하기</StButton>
+      <InputInformation locationInputRef={locationInputRef} />
+      <StButton type="button" onClick={() => 특정지역맥주집가져오기(locationInputRef.current?.value)}>
+        검색하기
+      </StButton>
     </SearchSectionWrapper>
   );
 }
