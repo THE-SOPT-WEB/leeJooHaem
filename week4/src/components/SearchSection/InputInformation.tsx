@@ -1,25 +1,18 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 interface InputInformationProps {
   locationInputRef: React.MutableRefObject<HTMLInputElement | null>;
+  isRegionBasedChecked: boolean;
+  onChangeRegionBasedChecked: () => void;
 }
 
 export default function InputInformation(props: InputInformationProps) {
-  const { locationInputRef } = props;
-
-  const [isRegionBasedChecked, setIsRegionBasedChecked] = useState<boolean>(false);
-
+  const { locationInputRef, isRegionBasedChecked, onChangeRegionBasedChecked } = props;
   return (
     <>
       <p>
         <label htmlFor="region-based">지역 기반으로 검색할게요</label>
-        <input
-          type="checkbox"
-          id="region-based"
-          checked={isRegionBasedChecked}
-          onChange={() => setIsRegionBasedChecked((prev) => !prev)}
-        />
+        <input type="checkbox" id="region-based" checked={isRegionBasedChecked} onChange={onChangeRegionBasedChecked} />
       </p>
 
       <label htmlFor="my-region">우리 동네는 여기에요</label>

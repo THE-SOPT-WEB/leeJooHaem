@@ -1,6 +1,6 @@
 import { KAKAO } from "core/api";
 import { ResultList, ResultListWithAxios } from "core/types";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 
 import InputInformation from "./InputInformation";
@@ -11,7 +11,13 @@ interface SearchSectionProps {
 
 export default function SearchSection(props: SearchSectionProps) {
   const { handleResultList } = props;
+
+  const [isRegionBasedChecked, setIsRegionBasedChecked] = useState<boolean>(false);
   const locationInputRef = useRef<HTMLInputElement>(null);
+
+  const toggleIsRegionBasedChecked = () => {
+    setIsRegionBasedChecked((prev) => !prev);
+  };
 
   const 특정지역맥주집가져오기 = async (location = "") => {
     const {
@@ -27,7 +33,11 @@ export default function SearchSection(props: SearchSectionProps) {
 
   return (
     <SearchSectionWrapper>
-      <InputInformation locationInputRef={locationInputRef} />
+      <InputInformation
+        locationInputRef={locationInputRef}
+        isRegionBasedChecked={isRegionBasedChecked}
+        onChangeRegionBasedChecked={toggleIsRegionBasedChecked}
+      />
       <StButton type="button" onClick={() => 특정지역맥주집가져오기(locationInputRef.current?.value)}>
         검색하기
       </StButton>
