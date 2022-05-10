@@ -24,7 +24,7 @@ export default function Main() {
     });
 
     if (prevWinnersLength === 2) navigation("/complete", { state: winners[0] });
-    else if (prevWinnersLength >= idxOfNations + 3) setIdxOfNations((prevIdx) => prevIdx + 1);
+    else if (prevWinnersLength - 1 - idxOfNations >= 2) setIdxOfNations((prevIdx) => prevIdx + 1);
     else setIdxOfNations(0);
   };
 
