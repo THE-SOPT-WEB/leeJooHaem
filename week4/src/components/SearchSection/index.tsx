@@ -1,16 +1,20 @@
 import { KAKAO } from "core/api";
+import { ResultListWithAxios } from "core/types";
 import styled from "styled-components";
 
 export default function SearchSection() {
   async function 특정지역맥주집가져오기(location: string) {
-    const result = await KAKAO.get("/search/keyword", {
+    const {
+      data: { documents },
+    }: ResultListWithAxios = await KAKAO.get("/search/keyword", {
       params: {
         query: location + " " + "맥주",
       },
     });
 
-    console.log(result);
+    console.log(documents);
   }
+  특정지역맥주집가져오기("신림");
 
   return (
     <SearchSectionWrapper>
