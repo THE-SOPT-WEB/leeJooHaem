@@ -44,6 +44,12 @@ const StMainWrapper = styled.main`
   max-width: 35rem;
   min-height: 90vh;
 
+  display: flex;
+  flex-direction: column;
+  & > section:last-child {
+    flex: 1;
+  }
+
   border: 0.1rem solid #f5f5f5;
   border-radius: 1rem;
 `;
