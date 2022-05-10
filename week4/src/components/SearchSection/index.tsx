@@ -32,14 +32,27 @@ export default function SearchSection(props: SearchSectionProps) {
     handleResultList(documents);
   };
 
-  useEffect(() => {
-    async function 위치가져오기() {
-      const result = await getLocation();
+  const 내근처맥주집가져오기 = async () => {
+    const myLocation = await getLocation();
 
-      console.log(result);
+    if (myLocation) {
+      const {
+        data: { documents },
+      } = await KAKAO.get<ResultListWithAxios>("/search/keyword", {
+        params: {
+          x: myLocation.x,
+          y: myLocation.y,
+          radius: 1000,
+          query: "맥주",
+        },
+      });
+
+      handleResultList(documents);
     }
+  };
 
-    위치가져오기();
+  useEffect(() => {
+    내근처맥주집가져오기();
   }, []);
 
   return (

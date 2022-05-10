@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function Main() {
+  // 로딩중중ㅈ웆ㅇ
   const [resultList, setResultList] = useState<ResultList[]>([]);
 
   const handleResultList = (newResultList: ResultList[]) => {

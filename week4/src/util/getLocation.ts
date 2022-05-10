@@ -1,6 +1,11 @@
+interface Location {
+  x: number;
+  y: number;
+}
+
 export default function getLocation(errHandler?: () => void) {
   if ("geolocation" in navigator) {
-    return new Promise((resolve) => {
+    return new Promise<Location>((resolve) => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const {
