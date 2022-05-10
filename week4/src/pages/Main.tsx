@@ -9,11 +9,15 @@ import styled from "styled-components";
 export default function Main() {
   const [resultList, setResultList] = useState<ResultList[]>([]);
 
+  const handleResultList = (newResultList: ResultList[]) => {
+    setResultList(newResultList);
+  };
+
   return (
     <StMainContainer>
       <StMainWrapper>
         <HeaderSection />
-        <SearchSection />
+        <SearchSection handleResultList={handleResultList} />
         <ListSection />
       </StMainWrapper>
     </StMainContainer>

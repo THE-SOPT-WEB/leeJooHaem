@@ -14,7 +14,5 @@ export interface ResultList {
 }
 
 export interface ResultListWithAxios {
-  data: {
-    documents: ResultList[];
-  };
+  documents: ResultList[];
 }
