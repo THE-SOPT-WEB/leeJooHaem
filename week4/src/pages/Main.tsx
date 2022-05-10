@@ -1,4 +1,3 @@
-import axios from "axios";
 import HeaderSection from "components/HeaderSection";
 import ListSection from "components/ListSection";
 import SearchSection from "components/SearchSection";
