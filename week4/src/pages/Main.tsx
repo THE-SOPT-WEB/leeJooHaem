@@ -7,14 +7,14 @@ import styled from "styled-components";
 
 export default function Main() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [resultList, setResultList] = useState<ResultList[]>([]);
+  const [resultLists, setResultLists] = useState<ResultList[]>([]);
 
   const handleIsLoading = (_isLoading: boolean) => {
     setIsLoading(_isLoading);
   };
 
   const handleResultList = (newResultList: ResultList[]) => {
-    setResultList(newResultList);
+    setResultLists(newResultList);
   };
 
   return (
@@ -22,7 +22,7 @@ export default function Main() {
       <StMainWrapper>
         <HeaderSection />
         <SearchSection handleResultList={handleResultList} handleIsLoading={handleIsLoading} />
-        <ListSection resultList={resultList} isLoading={isLoading} />
+        <ListSection resultLists={resultLists} isLoading={isLoading} />
       </StMainWrapper>
     </StMainContainer>
   );

@@ -2,16 +2,16 @@ import { ResultList } from "core/types";
 import styled from "styled-components";
 
 interface ListSectionProps {
-  resultList: ResultList[];
+  resultLists: ResultList[];
   isLoading: boolean;
 }
 
 export default function ListSection(props: ListSectionProps) {
-  const { resultList, isLoading } = props;
+  const { resultLists, isLoading } = props;
 
   if (isLoading) return <StResultWrapper>로딩 중🌐🦄</StResultWrapper>;
-  if (resultList.length === 0) return <StResultWrapper>결과가 없어요🤔😘</StResultWrapper>;
-  return <div>ListSection</div>;
+  if (resultLists.length === 0) return <StResultWrapper>결과가 없어요🤔😘</StResultWrapper>;
+  return <StResultWrapper></StResultWrapper>;
 }
 
 const StResultWrapper = styled.section`
