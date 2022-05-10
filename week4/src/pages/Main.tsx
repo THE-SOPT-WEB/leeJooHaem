@@ -2,7 +2,7 @@ import HeaderSection from "components/HeaderSection";
 import ListSection from "components/ListSection";
 import SearchSection from "components/SearchSection";
 import { ResultList } from "core/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function Main() {
@@ -11,6 +11,10 @@ export default function Main() {
   const handleResultList = (newResultList: ResultList[]) => {
     setResultList(newResultList);
   };
+
+  useEffect(() => {
+    console.log(resultList);
+  }, [resultList]);
 
   return (
     <StMainContainer>
