@@ -1,7 +1,8 @@
 import { KAKAO } from "core/api";
 import { ResultList, ResultListWithAxios } from "core/types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import getLocation from "util/getLocation";
 
 import InputInformation from "./InputInformation";
 
@@ -30,6 +31,16 @@ export default function SearchSection(props: SearchSectionProps) {
 
     handleResultList(documents);
   };
+
+  useEffect(() => {
+    async function 위치가져오기() {
+      const result = await getLocation();
+
+      console.log(result);
+    }
+
+    위치가져오기();
+  }, []);
 
   return (
     <SearchSectionWrapper>
