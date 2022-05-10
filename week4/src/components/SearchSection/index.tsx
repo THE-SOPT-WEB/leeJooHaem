@@ -51,9 +51,10 @@ export default function SearchSection(props: SearchSectionProps) {
     }
   };
 
-  useEffect(() => {
-    내근처맥주집가져오기();
-  }, []);
+  const 검색하기 = () => {
+    if (isRegionBasedChecked) 내근처맥주집가져오기();
+    else 특정지역맥주집가져오기(locationInputRef.current?.value);
+  };
 
   return (
     <SearchSectionWrapper>
@@ -62,7 +63,7 @@ export default function SearchSection(props: SearchSectionProps) {
         isRegionBasedChecked={isRegionBasedChecked}
         onChangeRegionBasedChecked={toggleIsRegionBasedChecked}
       />
-      <StButton type="button" onClick={() => 특정지역맥주집가져오기(locationInputRef.current?.value)}>
+      <StButton type="button" onClick={검색하기}>
         검색하기
       </StButton>
     </SearchSectionWrapper>
