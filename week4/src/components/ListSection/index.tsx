@@ -10,7 +10,6 @@ interface ListSectionProps {
 
 export default function ListSection(props: ListSectionProps) {
   const { resultLists, isLoading } = props;
-  console.log(resultLists);
 
   if (isLoading) return <StResultWrapper>로딩 중🌐🦄</StResultWrapper>;
   if (resultLists.length === 0) return <StResultWrapper>결과가 없어요🤔😘</StResultWrapper>;
