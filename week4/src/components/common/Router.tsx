@@ -7,6 +7,7 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
