@@ -21,47 +21,33 @@ export default function SearchSection(props: SearchSectionProps) {
     setIsRegionBasedChecked((prev) => !prev);
   };
 
-  const 특정지역맥주집가져오기 = async (location = "") => {
+  const getQueryParams = async (isRegionBasedChecked: boolean, location?: string) => {
+    if (isRegionBasedChecked) {
+      const myLocation = await getLocation();
+
+      return {
+        x: myLocation.x,
+        y: myLocation.y,
+        radius: 1000,
+        query: "맥주",
+      };
+    } else {
+      return { query: location + " " + "맥주" };
+    }
+  };
+  const 검색하기 = async () => {
     handleIsLoading(true);
+
+    const params = getQueryParams(isRegionBasedChecked, locationInputRef.current?.value);
 
     const {
       data: { documents },
     } = await KAKAO.get<ResultListWithAxios>("/search/keyword", {
-      params: {
-        query: location + " " + "맥주",
-      },
+      params,
     });
 
     handleResultList(documents);
     handleIsLoading(false);
-  };
-
-  const 내근처맥주집가져오기 = async () => {
-    handleIsLoading(true);
-
-    const myLocation = await getLocation();
-
-    if (myLocation) {
-      const {
-        data: { documents },
-      } = await KAKAO.get<ResultListWithAxios>("/search/keyword", {
-        params: {
-          x: myLocation.x,
-          y: myLocation.y,
-          radius: 1000,
-          query: "맥주",
-        },
-      });
-
-      handleResultList(documents);
-    }
-
-    handleIsLoading(false);
-  };
-
-  const 검색하기 = () => {
-    if (isRegionBasedChecked) 내근처맥주집가져오기();
-    else 특정지역맥주집가져오기(locationInputRef.current?.value);
   };
 
   return (

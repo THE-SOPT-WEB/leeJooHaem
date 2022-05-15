@@ -16,7 +16,7 @@ export default function InputInformation(props: InputInformationProps) {
       </p>
 
       <label htmlFor="my-region">우리 동네는 여기에요</label>
-      <StRegionInput type="text" id="my-region" ref={locationInputRef} disabled={isRegionBasedChecked}></StRegionInput>
+      <StRegionInput type="text" id="my-region" ref={locationInputRef} disabled={isRegionBasedChecked} />
     </>
   );
 }
