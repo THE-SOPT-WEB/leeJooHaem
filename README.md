@@ -2,10 +2,11 @@
 
 ### 🔗 Homework PR Link
 
-| 주차  | 과제 내용 |  🔗 링크  | 
-|---|---|---|
-| 1주차  | 햄식이를 도와줄람줄 | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/1)  | 
-| 2주차  | 누군지 맞람맞 | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/2)  | 
-| 2주차  | 햄식이를 도와줄람줄 JS | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/3)  | 
-| 3주차  | 킹안받는 진짜 월드컵 | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/4)  | 
-|   |   |   |
+| 주차  | 과제 내용              | 🔗 링크                                                   |
+| ----- | ---------------------- | --------------------------------------------------------- |
+| 1주차 | 햄식이를 도와줄람줄    | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/1) |
+| 2주차 | 누군지 맞람맞          | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/2) |
+| 2주차 | 햄식이를 도와줄람줄 JS | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/3) |
+| 3주차 | 킹안받는 진짜 월드컵   | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/4) |
+| 4주차 | 동네 킹주집 함가보자   | [Link](https://github.com/THE-SOPT-WEB/leeJooHaem/pull/5) |
+|       |                        |                                                           |
