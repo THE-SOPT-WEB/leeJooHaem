@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+
   height: 60px;
 
   display: flex;
@@ -10,6 +12,39 @@
 
   font-size: 20px;
   font-weight: 700;
+}
+
+.header__nav-lists {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  display: none;
+}
+
+.header__nav-lists > li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.header .header__nav-list {
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  background-color: aliceblue;
+  color: black;
+  font-size: 14px;
+}
+
+.header .header__nav-list:hover {
+  color: whitesmoke;
+  background-color: skyblue;
+
+  cursor: pointer;
 }
 
 /* -------------------- */
@@ -218,4 +253,19 @@
 
 .answer > header {
   border-radius: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__nav-lists {
+    display: block;
+  }
+  .main__nav.box {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main__lists .main__list {
+    width: 100%;
+  }
 }
