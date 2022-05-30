@@ -95,6 +95,8 @@
 
 .main__lists .main__list:hover {
   cursor: pointer;
+  
+  background-color: aquamarine;
 }
 
 .main__lists .main__list:nth-child(2n) {
