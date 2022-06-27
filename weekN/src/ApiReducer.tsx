@@ -107,6 +107,8 @@ export default function ApiReducer() {
     // 패칭 라이브러리를 사용하면 없어도 될듯한!
     const [error, response] = await to(getItems());
 
+    console.log(error, response);
+
     if (error) {
       return dispatch({
         _TAG: "FAILED",
@@ -122,8 +124,6 @@ export default function ApiReducer() {
     if (response?.error === ERROR_TYPE.NOT_ERROR && response.itemList) {
       return dispatch({ _TAG: "SUCCESS", message: response.itemList });
     }
-
-    console.log(error, response);
   };
 
   return (
