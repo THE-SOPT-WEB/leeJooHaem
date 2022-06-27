@@ -2,10 +2,10 @@
 
 describe("메인 테스트", () => {
   // 대주제
-  it("yarn start", () => {
-    // 테스트 설명하는 제목
-    cy.exec("yarn start"); // CLI로 실행되는 함수 (cli > yarn start를 실행)
-  });
+  // it("yarn start", () => {
+  //   // 테스트 설명하는 제목
+  //   cy.exec("yarn start"); // CLI로 실행되는 함수 (cli > yarn start를 실행)
+  // });
   it("1. 메인화면 접속", () => {
     cy.visit("/"); // BaseURL경로를 접속하게 된다.
   });
